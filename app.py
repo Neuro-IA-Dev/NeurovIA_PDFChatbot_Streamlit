@@ -9,7 +9,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 
 st.set_page_config(page_title="Asistente Laboral - Código del Trabajo - version chorizo")
-st.title("🧑‍⚖️ Asistente Laboral – Código del Trabajo Chileno")
+st.title("🧑‍⚖️ Asistente Laboral – Código del Trabajo Chileno version chorizo")
 st.write("Haz preguntas sobre el Código del Trabajo y recibe respuestas claras basadas en el texto oficial.")
 
 # Cargar clave de OpenAI
