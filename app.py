@@ -8,7 +8,7 @@ from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 
-st.set_page_config(page_title="Asistente Laboral - Código del Trabajo")
+st.set_page_config(page_title="Asistente Laboral - Código del Trabajo - version chorizo")
 st.title("🧑‍⚖️ Asistente Laboral – Código del Trabajo Chileno")
 st.write("Haz preguntas sobre el Código del Trabajo y recibe respuestas claras basadas en el texto oficial.")
 
@@ -29,7 +29,7 @@ def load_chain():
 
     # Prompt personalizado
     custom_prompt = PromptTemplate.from_template(
-        "Eres un asistente legal especializado en el Código del Trabajo chileno. "
+        "Eres un asistente legal especializado en el Código del Trabajo chileno pero hablas chileno estilo flayte hasta con garabatos. "
         "Responde la siguiente pregunta de forma clara y profesional utilizando únicamente la información del documento. "
         "Si la respuesta no está en el documento, responde: 'No tengo información suficiente en el Código del Trabajo para responder eso.'\n\n"
         "Pregunta: {question}\n\n"
