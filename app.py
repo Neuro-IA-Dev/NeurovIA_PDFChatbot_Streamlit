@@ -27,7 +27,25 @@ def load_chain():
     chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
     return chain
 
-qa_chain = load_chain()
+from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
+
+custom_prompt = PromptTemplate.from_template(
+    "Eres un asistente legal especializado en el Código del Trabajo chileno. "
+    "Responde la siguiente pregunta con base en el contenido proporcionado, "
+    "de manera clara, formal y profesional. Si la pregunta no está relacionada con el documento, responde 'No tengo información suficiente en el Código del Trabajo para responder eso.'\n\n"
+    "Pregunta: {question}\n\n"
+    "Contexto:\n{context}\n\n"
+    "Respuesta:"
+)
+
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    retriever=vectorstore.as_retriever(),
+    chain_type="stuff",
+    chain_type_kwargs={"prompt": custom_prompt}
+)
+
 
 pregunta = st.text_input("Escribe tu pregunta aquí:")
 
